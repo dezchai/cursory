@@ -7,7 +7,11 @@ This package generates human-like mouse trajectories by selecting from a dataset
 ## Install
 
 ```bash
-bun add cursory-bun
+npm install @dezchai/cursory
+```
+
+```bash
+bun add @dezchai/cursory
 ```
 
 If you are using this repository directly:
@@ -19,7 +23,7 @@ bun install
 ## Basic Usage
 
 ```ts
-import { generateTrajectory } from "cursory-bun";
+import { generateTrajectory } from "@dezchai/cursory";
 
 const { points, timings } = generateTrajectory([0, 0], [200, 100]);
 ```
@@ -39,7 +43,7 @@ These visuals come from the original project and illustrate the style of generat
 Generates a trajectory between two points.
 
 ```ts
-import { generateTrajectory, type Point, type RandomSource } from "cursory-bun";
+import { generateTrajectory, type Point, type RandomSource } from "@dezchai/cursory";
 
 const start: Point = [25, 40];
 const end: Point = [640, 360];
@@ -75,7 +79,7 @@ Returns the number of bundled source trajectories in the dataset.
 You can pass a custom random source if you want reproducible output for tests or debugging.
 
 ```ts
-import { generateTrajectory, type RandomSource } from "cursory-bun";
+import { generateTrajectory, type RandomSource } from "@dezchai/cursory";
 
 class SeededRandom implements RandomSource {
   private state: number;
@@ -97,9 +101,9 @@ const result = generateTrajectory([0, 0], [300, 180], {
 
 ## Compatibility
 
-This repository is built for Bun and TypeScript-first usage.
+This repository is built for modern TypeScript/ESM usage and can be installed with either npm or Bun.
 
-- Runtime: Bun
+- Package managers: npm, Bun
 - Module format: ESM
 - Source entrypoint: `src/index.ts`
 

@@ -1,9 +1,12 @@
 {
-  "name": "cursory-bun",
+  "name": "@dezchai/cursory",
   "version": "0.1.0",
   "description": "Bun/TypeScript port of cursory for generating realistic mouse trajectories.",
   "license": "GPL-3.0-or-later",
   "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "exports": {

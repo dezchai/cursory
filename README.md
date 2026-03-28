@@ -4,14 +4,6 @@ TypeScript/Bun port of the original Python project [Vinyzu/cursory](https://gith
 
 This package generates human-like mouse trajectories by selecting from a dataset of recorded trajectories, morphing them to the requested start and end points, and re-sampling them with timing noise.
 
-## Attribution
-
-This project is based on the original `cursory` implementation by [Vinyzu](https://github.com/Vinyzu/).
-
-- Original repository: [Vinyzu/cursory](https://github.com/Vinyzu/cursory)
-- Original concept, implementation, dataset, and methodology: Vinyzu
-- This repository: Bun/TypeScript port and packaging work
-
 ## Install
 
 ```bash
@@ -31,6 +23,14 @@ import { generateTrajectory } from "cursory-bun";
 
 const { points, timings } = generateTrajectory([0, 0], [200, 100]);
 ```
+
+## Example Trajectories
+
+These visuals come from the original project and illustrate the style of generated paths:
+
+| Random Points | Same Points | Points / Velocity |
+|:--:|:--:|:--:|
+| <img height="320" alt="Random Points" src="https://github.com/user-attachments/assets/07eaebb0-6798-45d1-9182-2ffd5f1e42d7" /> | <img height="320" alt="Same Points" src="https://github.com/user-attachments/assets/81eb79df-e274-4200-b74c-5f57f4899a3f" /> | <img height="320" alt="Points / Velocity" src="https://github.com/user-attachments/assets/e7fad0e3-1b56-4c85-a139-42601288701c" /> |
 
 ## API
 
@@ -94,32 +94,6 @@ const result = generateTrajectory([0, 0], [300, 180], {
   random: new SeededRandom(12345),
 });
 ```
-
-## Example Trajectories
-
-These visuals come from the original project and illustrate the style of generated paths:
-
-| Random Points | Same Points | Points / Velocity |
-|:--:|:--:|:--:|
-| <img height="320" alt="Random Points" src="https://github.com/user-attachments/assets/07eaebb0-6798-45d1-9182-2ffd5f1e42d7" /> | <img height="320" alt="Same Points" src="https://github.com/user-attachments/assets/81eb79df-e274-4200-b74c-5f57f4899a3f" /> | <img height="320" alt="Points / Velocity" src="https://github.com/user-attachments/assets/e7fad0e3-1b56-4c85-a139-42601288701c" /> |
-
-## Methodology
-
-Like the original Python implementation, this port generates trajectories in several stages:
-
-1. Find a close matching human trajectory from the bundled dataset.
-2. Morph that trajectory so it exactly fits the requested start and end points.
-3. Add spatial noise through jittering and knotting.
-4. Re-sample the path at the requested frequency and apply small timing perturbations.
-5. Apply another round of jittering and knotting to reduce repeated signatures.
-6. Morph the final sampled path so the first and last points still match exactly.
-
-## Port Notes
-
-- The bundled trajectory dataset in `data/trajectories.json.gz` is carried over from the original project.
-- The Bun port keeps the same overall generation pipeline while adapting the API to idiomatic TypeScript.
-- The port includes a deterministic `random` hook that makes tests and reproducible runs easier.
-- Resampling is guarded against very high frequencies and keeps output timings non-decreasing.
 
 ## Compatibility
 

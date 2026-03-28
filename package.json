@@ -4,6 +4,14 @@
   "description": "Bun/TypeScript port of cursory for generating realistic mouse trajectories.",
   "license": "GPL-3.0-or-later",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dezchai/cursory.git"
+  },
+  "homepage": "https://github.com/dezchai/cursory",
+  "bugs": {
+    "url": "https://github.com/dezchai/cursory/issues"
+  },
   "publishConfig": {
     "access": "public"
   },

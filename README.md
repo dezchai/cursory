@@ -1,6 +1,6 @@
 # cursory
 
-TypeScript/Bun port of the original Python project [Vinyzu/cursory](https://github.com/Vinyzu/cursory).
+TypeScript port of the original Python project [Vinyzu/cursory](https://github.com/Vinyzu/cursory).
 
 This package generates human-like mouse trajectories by selecting from a dataset of recorded trajectories, morphing them to the requested start and end points, and re-sampling them with timing noise.
 
@@ -15,6 +15,10 @@ bun add @dezchai/cursory
 ```
 
 If you are using this repository directly:
+
+```bash
+npm install
+```
 
 ```bash
 bun install
@@ -101,11 +105,12 @@ const result = generateTrajectory([0, 0], [300, 180], {
 
 ## Compatibility
 
-This repository is built for modern TypeScript/ESM usage and can be installed with either npm or Bun.
+This package is built for modern ESM runtimes and can be installed with either npm or Bun.
 
 - Package managers: npm, Bun
+- Runtimes: Node.js, Bun
 - Module format: ESM
-- Source entrypoint: `src/index.ts`
+- Published entrypoint: `dist/index.js`
 
 ## Copyright and License
 
